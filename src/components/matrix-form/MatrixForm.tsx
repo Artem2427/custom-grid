@@ -2,13 +2,8 @@ import React from 'react';
 import styles from './MatrixForm.module.css';
 import { generateInitialMatrix, useMatrix } from '@/context/MatrixContext';
 
-function getRandomNumber(min: number = 0, max: number = 100): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-
 const MatrixForm: React.FC = () => {
-  const { setMatrix } = useMatrix();
+  const { setMatrix, setXValue, xValue } = useMatrix();
   const [rows, setRows] = React.useState('');
   const [columns, setColumns] = React.useState('');
 
@@ -19,8 +14,8 @@ const MatrixForm: React.FC = () => {
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
-      <label>
-        Rows:
+      <div className={styles.inputGroup}>
+        <label>Rows:</label>
         <input
           type="number"
           value={rows}
@@ -28,9 +23,9 @@ const MatrixForm: React.FC = () => {
           min="0"
           required
         />
-      </label>
-      <label>
-        Columns:
+      </div>
+      <div className={styles.inputGroup}>
+        <label>Columns:</label>
         <input
           type="number"
           value={columns}
@@ -38,7 +33,17 @@ const MatrixForm: React.FC = () => {
           min="0"
           required
         />
-      </label>
+      </div>
+      <div className={styles.inputGroup}>
+        <label>X:</label>
+        <input
+          type="number"
+          value={xValue ? xValue : ''}
+          onChange={(e) => setXValue(Number(e.target.value))}
+          min="0"
+          required
+        />
+      </div>
       <button type="submit">Generate Matrix</button>
     </form>
   );

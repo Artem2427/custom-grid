@@ -1,18 +1,51 @@
-.table {
-  border-collapse: collapse;
+.matrixTable {
   width: 100%;
-  margin-top: 1rem;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #f8f8f8;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 1rem;
 }
 
-.cell {
-  border: 1px solid #ddd;
-  padding: 8px;
+.matrixTable th,
+.matrixTable td {
+  padding: 10px 15px;
   text-align: center;
 }
 
-th {
-  border: 1px solid #ddd;
-  padding: 8px;
-  text-align: center;
-  background-color: #965050;
+.indexCells{
+  white-space: nowrap;
+}
+
+.matrixTable thead th {
+  background-color: #6a1b9a;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.matrixTable tbody tr:nth-child(odd) {
+  background-color: #efefef;
+
+}
+
+.matrixTable td {
+  transition: background-color 0.3s ease;
+  color: #000
+}
+
+.matrixTable td img {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+
+.addRowButton{
+  background-color: #e7e7e7;
+}
+
+.infoCells{
+  font-weight: bold;
 }
